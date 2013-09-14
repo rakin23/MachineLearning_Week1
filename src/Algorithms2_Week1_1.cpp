@@ -89,3 +89,17 @@ int ScheduleMaxDifferenceJob(PROJECT_STRUCT * data, int size)
    data[maxIndexSoFar].scheduled = true;
    return maxIndexSoFar;
 }
+
+long ComputeOptimalScheduleLength(PROJECT_STRUCT data[], int size)
+{
+   long weightedCompletionTime = 0;
+   long completionTime = 0;
+
+   for (int i = 0; i < size; i++)
+   {
+      int index = ScheduleMaxDifferenceJob(data, size);
+      completionTime += data[index].length;
+      weightedCompletionTime += (data[index].weight * completionTime);
+   }
+   return weightedCompletionTime;
+}

@@ -9,3 +9,4 @@ typedef struct
 
 void ReadFile(const char * inName, PROJECT_STRUCT * data);
 int ScheduleMaxDifferenceJob(PROJECT_STRUCT * data, int size);
+long ComputeOptimalScheduleLength(PROJECT_STRUCT data[], int size);
